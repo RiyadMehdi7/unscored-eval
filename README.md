@@ -8,7 +8,7 @@ Local files in. A portable report out. No API keys, model calls, server, telemet
 
 [Open the interactive synthetic demo](https://riyadmehdi7.github.io/unscored-eval/) · [Read the idea research](docs/RESEARCH.md)
 
-![Unscored synthetic evaluation audit](docs/preview.png)
+![Unscored synthetic evaluation audit](docs/preview.jpg)
 
 ## The problem in 20 seconds
 

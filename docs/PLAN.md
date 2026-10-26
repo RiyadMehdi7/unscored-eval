@@ -27,7 +27,7 @@
 - [x] Install a built wheel in an isolated environment, run demo and full tests, independently replay witnesses, and benchmark a larger synthetic input.
 - [x] Browser-check desktop/mobile, each control and reset, keyboard interaction, no network requests, hostile text, and no horizontal overflow; save a screenshot.
 - [x] Fresh spec review, then code-quality review; resolve material findings.
-- [ ] Commit reviewed source, publish a new public repository if the authorized account is available, and verify remote state/CI; never publish unrelated workspace files.
+- [x] Commit reviewed source, publish a new public repository if the authorized account is available, and verify remote state/CI; never publish unrelated workspace files.
 
 ## Verification commands and expected outcomes
 

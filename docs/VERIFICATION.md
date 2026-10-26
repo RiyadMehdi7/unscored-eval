@@ -30,6 +30,12 @@ Fresh browser console checks contained no warnings or errors. Source/template te
 
 Independent read-only reviews covered the engine specification, engine quality, CLI/package integration and report specification/quality. Material findings were fixed and verified. The synthetic report and screenshot in this repository are reproducible release examples, not results from a real model evaluation.
 
+## Public deployment
+
+The public repository is [RiyadMehdi7/unscored-eval](https://github.com/RiyadMehdi7/unscored-eval), with an MIT license and `main` as the default branch. [GitHub CI run 40393056727](https://github.com/RiyadMehdi7/unscored-eval/actions/runs/40393056727) passed on Python 3.10, 3.11, 3.12 and 3.13 with Node 22 available for the JavaScript test. GitHub Pages reported a successful build of commit `f4906d7`.
+
+The [public synthetic demo](https://riyadmehdi7.github.io/unscored-eval/) was opened in the browser. Its evidence ranges, hypothetical Beacon-winning scenario, eight imputed cells and return to measured evidence were verified, with no console errors or warnings. Later documentation-only commits retain the same demo HTML.
+
 ## Claims deliberately not made
 
 - No statistical confidence, generalization, judge accuracy or model-quality validation.
