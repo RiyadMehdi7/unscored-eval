@@ -17,6 +17,11 @@ classifiers = [
     "Topic :: Scientific/Engineering :: Artificial Intelligence",
 ]
 
+[project.urls]
+Homepage = "https://github.com/RiyadMehdi7/unscored-eval"
+Demo = "https://riyadmehdi7.github.io/unscored-eval/"
+Issues = "https://github.com/RiyadMehdi7/unscored-eval/issues"
+
 [project.scripts]
 unscored = "unscored.cli:main"
 

@@ -6,6 +6,8 @@ Unscored checks an incomplete evaluation against the cases you intended to run. 
 
 Local files in. A portable report out. No API keys, model calls, server, telemetry, or runtime dependencies. **MIT licensed · Python 3.10+ · Alpha 0.1.0**
 
+[Open the interactive synthetic demo](https://riyadmehdi7.github.io/unscored-eval/) · [Read the idea research](docs/RESEARCH.md)
+
 ![Unscored synthetic evaluation audit](docs/preview.png)
 
 ## The problem in 20 seconds
@@ -23,9 +25,11 @@ This is a synthetic demonstration, not a claim about real models. Denominator-dr
 
 ## Try it
 
-From a source checkout:
+Clone the source, then run the bundled example:
 
 ```sh
+git clone https://github.com/RiyadMehdi7/unscored-eval.git
+cd unscored-eval
 python3 -m venv .venv
 . .venv/bin/activate
 python -m pip install .
