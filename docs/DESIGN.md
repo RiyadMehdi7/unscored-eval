@@ -22,7 +22,7 @@ Weights default to 1; group defaults to `all`. Cases must be nonempty. Identifie
 
 `results.jsonl`: one JSON object per line: `{ "system": "A", "case_id": "case-1", "status": "scored", "score": 0.75 }`. Status is `scored`, `error`, or `unscored`. Scored rows require a finite numeric score from 0 through 1; booleans and strings are not numbers. Other statuses forbid a score. An absent pair is `missing`. An unknown case/system or duplicate pair is an input error, including duplicate retries; the caller must choose and document its attempt policy before export. Blank lines are ignored.
 
-Numeric decimals are parsed exactly; Python API inputs also accept finite int/float/Decimal, not booleans. Use Fraction internally and serialize exact quantities as rational strings (`1/3`, `1`). Input files are bounded at 32 MiB each; at most 100,000 cases; nesting/huge numeric encodings must fail clearly instead of causing uncontrolled resource use. No input is executed.
+Numeric decimals are parsed exactly; Python API inputs also accept finite int/float/Decimal, not booleans. Use Fraction internally and serialize exact quantities as rational strings (`1/3`, `1`). Input files are bounded at 32 MiB each; at most 100,000 cases. Names, groups and IDs are at most 200 characters and reject control characters/lone surrogates. Numbers have at most 100 coefficient digits and adjusted decimal exponent in [-100,100]; JSON decimal tokens have at most 128 characters. Deep nesting fails clearly. No input is executed.
 
 ## Arithmetic and claims
 
