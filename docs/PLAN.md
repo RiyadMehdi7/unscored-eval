@@ -19,14 +19,14 @@
 
 - [x] Research competing projects and concrete failure reports; compare alternatives.
 - [x] Define the finite-set contract, claims, scope, trust boundaries and tests in DESIGN.md.
-- [ ] Write engine tests first; verify failure; implement exact bounds, witnesses and measurement queue; exhaustively compare against enumerated binary completions.
-- [ ] Write parser tests first; verify failure; implement strict bounded JSON/JSONL input, including duplicate JSON keys and numeric limits.
-- [ ] Write report tests first; verify failure; implement standalone escaped HTML with evidence/scenario switch and responsive case table.
-- [ ] Write CLI integration tests first; verify failure; implement `audit`, `demo`, `--out`, and `--require-winner`; verify errors never overwrite existing outputs or inputs.
-- [ ] Add MIT license, README with exact commands and boundaries, contributing guidance, packaged synthetic examples, and CI for Python 3.10–3.13.
-- [ ] Install a built wheel in an isolated environment, run demo and full tests, independently replay witnesses, and benchmark a larger synthetic input.
-- [ ] Browser-check desktop/mobile, each control and reset, keyboard interaction, no network requests, hostile text, and no horizontal overflow; save a screenshot.
-- [ ] Fresh spec review, then code-quality review; resolve material findings.
+- [x] Write engine tests first; verify failure; implement exact bounds, witnesses and measurement queue; exhaustively compare against enumerated binary completions.
+- [x] Write parser tests first; verify failure; implement strict bounded JSON/JSONL input, including duplicate JSON keys and numeric limits.
+- [x] Write report tests first; verify failure; implement standalone escaped HTML with evidence/scenario switch and responsive case table.
+- [x] Write CLI integration tests first; verify failure; implement `audit`, `demo`, `--out`, and `--require-winner`; verify errors never overwrite existing outputs or inputs.
+- [x] Add MIT license, README with exact commands and boundaries, contributing guidance, packaged synthetic examples, and CI for Python 3.10–3.13.
+- [x] Install a built wheel in an isolated environment, run demo and full tests, independently replay witnesses, and benchmark a larger synthetic input.
+- [x] Browser-check desktop/mobile, each control and reset, keyboard interaction, no network requests, hostile text, and no horizontal overflow; save a screenshot.
+- [x] Fresh spec review, then code-quality review; resolve material findings.
 - [ ] Commit reviewed source, publish a new public repository if the authorized account is available, and verify remote state/CI; never publish unrelated workspace files.
 
 ## Verification commands and expected outcomes
@@ -35,6 +35,6 @@
 
 `python3 -m unscored demo --out /new/path`: terminal says comparison is inconclusive; all three artifact files exist.
 
-`python3 -m unscored audit examples/suite.json examples/results.jsonl --require-winner Atlas`: exits 1 for the bundled unresolved comparison.
+`python3 -m unscored audit src/unscored/examples/suite.json src/unscored/examples/results.jsonl --require-winner Atlas`: exits 1 for the bundled unresolved comparison.
 
 The JSON contract, arithmetic and error cases are fully specified in DESIGN.md. Do not add provider clients, a service layer, or a statistical estimator. Public claims must distinguish tested synthetic behavior, inspected prior art, and unverified real-world adoption.

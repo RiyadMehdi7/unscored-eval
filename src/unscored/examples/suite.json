@@ -1,0 +1,106 @@
+{
+  "version": 1,
+  "name": "The disappearing hard cases · synthetic demo",
+  "systems": [
+    "Atlas",
+    "Beacon"
+  ],
+  "cases": [
+    {
+      "id": "reasoning-01",
+      "group": "reasoning"
+    },
+    {
+      "id": "reasoning-02",
+      "group": "reasoning"
+    },
+    {
+      "id": "reasoning-03",
+      "group": "reasoning"
+    },
+    {
+      "id": "reasoning-04",
+      "group": "reasoning"
+    },
+    {
+      "id": "reasoning-05",
+      "group": "reasoning"
+    },
+    {
+      "id": "reasoning-06",
+      "group": "reasoning"
+    },
+    {
+      "id": "reasoning-07",
+      "group": "reasoning"
+    },
+    {
+      "id": "reasoning-08",
+      "group": "reasoning"
+    },
+    {
+      "id": "coding-01",
+      "group": "coding"
+    },
+    {
+      "id": "coding-02",
+      "group": "coding"
+    },
+    {
+      "id": "coding-03",
+      "group": "coding"
+    },
+    {
+      "id": "coding-04",
+      "group": "coding"
+    },
+    {
+      "id": "coding-05",
+      "group": "coding"
+    },
+    {
+      "id": "coding-06",
+      "group": "coding"
+    },
+    {
+      "id": "coding-07",
+      "group": "coding"
+    },
+    {
+      "id": "coding-08",
+      "group": "coding"
+    },
+    {
+      "id": "long-context-01",
+      "group": "long-context"
+    },
+    {
+      "id": "long-context-02",
+      "group": "long-context"
+    },
+    {
+      "id": "long-context-03",
+      "group": "long-context"
+    },
+    {
+      "id": "long-context-04",
+      "group": "long-context"
+    },
+    {
+      "id": "long-context-05",
+      "group": "long-context"
+    },
+    {
+      "id": "long-context-06",
+      "group": "long-context"
+    },
+    {
+      "id": "long-context-07",
+      "group": "long-context"
+    },
+    {
+      "id": "long-context-08",
+      "group": "long-context"
+    }
+  ]
+}

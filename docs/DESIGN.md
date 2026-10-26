@@ -55,7 +55,7 @@ The example abbreviates the second system and second witness; real reports alway
 
 ## CLI and files
 
-`unscored audit suite.json results.jsonl --out audit` prints a terminal summary and writes `report.json`, `report.html`, `rerun.csv`. Output is optional; refuse an existing output directory, never modify inputs. Stage files in a temporary directory under the destination parent, then rename only on success. Avoid partial or overwritten reports. `--require-winner SYSTEM` returns 1 unless that named system is certified; 0 means successful audit unless that gate was requested; malformed input returns 2. Validate the gate's system name before writing. `unscored demo --out demo` uses bundled synthetic fixtures and the same audit path. `python -m unscored` works.
+`unscored audit suite.json results.jsonl --out audit` prints a terminal summary and writes `report.json`, `report.html`, `rerun.csv`. Output is optional; refuse an output path that exists when checked, never modify inputs. Stage files in a temporary directory under the destination parent, then rename only on success. A concurrently created empty destination directory can be replaced by POSIX rename; nonempty destinations remain protected. Strict concurrent exclusive publication is outside v0.1. Avoid partial or overwritten report files. `--require-winner SYSTEM` returns 1 unless that named system is certified; 0 means successful audit unless that gate was requested; malformed input returns 2. Validate the gate's system name before writing. `unscored demo --out demo` uses bundled synthetic fixtures and the same audit path. `python -m unscored` works.
 
 ## Interactive report
 

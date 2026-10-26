@@ -1,0 +1,45 @@
+{"system": "Atlas", "case_id": "reasoning-01", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "reasoning-01", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "reasoning-02", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "reasoning-02", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "reasoning-03", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "reasoning-03", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "reasoning-04", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "reasoning-04", "status": "scored", "score": 0}
+{"system": "Atlas", "case_id": "reasoning-05", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "reasoning-05", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "reasoning-06", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "reasoning-06", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "reasoning-07", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "reasoning-07", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "reasoning-08", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "reasoning-08", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "coding-01", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "coding-01", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "coding-02", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "coding-02", "status": "scored", "score": 0}
+{"system": "Atlas", "case_id": "coding-03", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "coding-03", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "coding-04", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "coding-04", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "coding-05", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "coding-05", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "coding-06", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "coding-06", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "coding-07", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "coding-07", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "coding-08", "status": "scored", "score": 0}
+{"system": "Beacon", "case_id": "coding-08", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "long-context-01", "status": "error"}
+{"system": "Beacon", "case_id": "long-context-01", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "long-context-02", "status": "error"}
+{"system": "Beacon", "case_id": "long-context-02", "status": "scored", "score": 0}
+{"system": "Atlas", "case_id": "long-context-03", "status": "error"}
+{"system": "Beacon", "case_id": "long-context-03", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "long-context-04", "status": "unscored"}
+{"system": "Beacon", "case_id": "long-context-04", "status": "scored", "score": 1}
+{"system": "Atlas", "case_id": "long-context-05", "status": "unscored"}
+{"system": "Beacon", "case_id": "long-context-05", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "long-context-06", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "long-context-07", "status": "scored", "score": 1}
+{"system": "Beacon", "case_id": "long-context-08", "status": "scored", "score": 0}

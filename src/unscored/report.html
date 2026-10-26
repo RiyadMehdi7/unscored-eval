@@ -1,0 +1,183 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'unsafe-inline'; style-src 'unsafe-inline'; base-uri 'none'; form-action 'none'">
+<title>Unscored · Evaluation audit</title>
+<style>
+:root{--paper:#f6f4ee;--ink:#182a29;--muted:#546360;--line:#c9cfca;--teal:#007767;--wash:#e6ede7;--rust:#9c452b;--rust-wash:#f0e6dd;font-family:Avenir,"Avenir Next","Segoe UI",sans-serif;color:var(--ink);background:var(--paper);font-synthesis:none}
+*{box-sizing:border-box}body{margin:0}button,input,select{font:inherit;color:inherit}button,input,select,summary{touch-action:manipulation}button,summary{cursor:pointer}button{border:1px solid var(--line);background:transparent;padding:11px 17px;border-radius:3px;font-size:13px;font-weight:600}button:hover{background:var(--wash);border-color:var(--ink)}button:disabled{opacity:.4;cursor:default}button:disabled:hover{background:transparent;border-color:var(--line)}:focus-visible{outline:3px solid var(--teal);outline-offset:4px}a{color:inherit}h1,h2,h3,p{margin:0}h1,h2{font-family:Georgia,"Times New Roman",serif;font-weight:400}h1{font-size:clamp(42px,6.5vw,78px);line-height:1.02;letter-spacing:-.055em;max-width:890px;overflow-wrap:anywhere}h2{font-size:32px;line-height:1.15;letter-spacing:-.035em}p{line-height:1.6}.mono{font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;font-variant-numeric:tabular-nums}.muted{color:var(--muted)}.small{font-size:13px}.eyebrow{text-transform:uppercase;letter-spacing:.13em;font-size:11px;font-weight:700}.wrap{width:min(1120px,calc(100% - 96px));margin:0 auto}.sr-only{position:absolute;width:1px;height:1px;margin:-1px;padding:0;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.skip{position:absolute;top:-100px;left:20px;z-index:5;background:var(--paper);padding:12px}.skip:focus{top:16px}[hidden]{display:none!important}
+header{display:flex;justify-content:space-between;align-items:center;gap:20px;padding:27px 0;border-bottom:1px solid var(--ink)}.brand{font:600 28px Georgia,serif;letter-spacing:-1.2px}.brand-dot{color:var(--teal)}.header-actions{display:flex;align-items:center;gap:22px}.header-actions .eyebrow{color:var(--muted)}.hero{padding:50px 0 38px}.suite-name{font-size:13px;max-width:700px;overflow-wrap:anywhere;margin-bottom:22px}.verdict-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-bottom:21px}.verdict{display:inline-block;font-size:10px;letter-spacing:.13em;font-weight:750;padding:7px 10px;background:var(--rust-wash);color:var(--rust)}.verdict.certified{background:var(--wash);color:var(--teal)}.hero-copy{font-size:16px;max-width:650px;margin-top:21px;color:var(--muted)}.section-top{display:flex;align-items:baseline;justify-content:space-between;gap:24px;margin-bottom:24px}.section-top p{max-width:450px}.comparison{border-top:1px solid var(--ink);padding:30px 0 0}.section-number{color:var(--teal);font-size:11px;display:block;margin-bottom:10px;letter-spacing:.1em}.legend{display:flex;gap:18px;flex-wrap:wrap;font-size:11px;color:var(--muted)}.legend span{display:flex;align-items:center;gap:7px}.swatch{width:22px;height:8px;display:inline-block;background:var(--teal)}.swatch.unknown{background:repeating-linear-gradient(135deg,transparent 0 3px,#6d9c91 3px 4px);border:1px solid #99b5ad}.system{display:grid;grid-template-columns:170px 1fr;gap:30px;padding:25px 0 26px;border-bottom:1px solid var(--line)}.system-label{display:flex;align-items:baseline;gap:11px;padding-top:5px}.system-key{font-size:11px;color:var(--teal);border:1px solid #9aafa7;padding:3px 5px}.system h3{font-size:19px;font-weight:600;overflow-wrap:anywhere;min-width:0}.system-main{min-width:0}.score-line{display:flex;align-items:baseline;justify-content:space-between;gap:15px}.range-value{font-size:32px;letter-spacing:-1px;line-height:1.15}.range-caption{font-size:11px;color:var(--muted);text-align:right}.rail{position:relative;height:22px;background:#e5e8e1;margin-top:13px;overflow:hidden;border-radius:1px}.rail .known{position:absolute;height:100%;background:var(--teal);left:0}.rail .unknown{position:absolute;height:100%;background:repeating-linear-gradient(135deg,transparent 0 4px,#6d9c91 4px 5px);border:1px solid #8caca2}.rail .point{position:absolute;top:0;height:100%;width:3px;background:var(--ink);transform:translateX(-1.5px)}.rail.hypothetical .known{background:var(--rust)}.scale{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:5px}.exact{font-size:11px;margin-top:5px;color:var(--muted);overflow-wrap:anywhere}.metrics{display:flex;gap:13px 30px;flex-wrap:wrap;margin-top:15px;font-size:12px}.metrics strong{font-weight:600;color:var(--ink)}.counts{font-size:11px;color:var(--muted);margin-top:7px;line-height:1.7}.scenario{display:grid;grid-template-columns:1fr auto;gap:18px 28px;padding:27px 0 30px;border-bottom:1px solid var(--ink);align-items:center}.scenario h3{font-size:17px;font-weight:600;margin-bottom:4px}.scenario-controls{display:flex;gap:5px;justify-content:flex-end;flex-wrap:wrap;max-width:530px}.scenario-controls button{overflow-wrap:anywhere;max-width:100%}.scenario-controls button[aria-pressed=true]{color:var(--paper);background:var(--ink);border-color:var(--ink)}.scenario-controls button[aria-pressed=true]:not(#evidence){background:var(--rust);border-color:var(--rust)}.scenario-banner{grid-column:1/-1;border-left:3px solid var(--rust);padding:13px 17px;background:var(--rust-wash);color:#77341f;font-size:13px}.scenario-banner strong{display:block;margin-bottom:4px}.details{border-bottom:1px solid var(--line);padding:18px 0;font-size:13px}.details summary{font-weight:600}.detail-content{padding:18px 0 3px;max-width:850px;color:var(--muted)}.detail-content p+p{margin-top:10px}.margin{color:var(--ink);overflow-wrap:anywhere}.data-section{padding-top:52px}.section-top .section-note{font-size:13px;color:var(--muted)}.filters{display:flex;gap:14px;align-items:end;flex-wrap:wrap;padding:20px 0 22px}.field{display:flex;flex-direction:column;gap:7px}.field.search{flex:1;min-width:190px}.field label{font-size:11px;font-weight:600}.field input,.field select{width:100%;min-height:42px;padding:9px 12px;border:1px solid var(--line);background:transparent;border-radius:3px;font-size:13px}.field select{min-width:170px}.filters button{min-height:42px}table{width:100%;border-collapse:collapse;table-layout:fixed;text-align:left;font-size:13px}th{font-size:10px;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);font-weight:600;border-top:1px solid var(--ink);border-bottom:1px solid var(--line);padding:13px 15px 13px 0;overflow-wrap:anywhere}td{padding:16px 15px 16px 0;border-bottom:1px solid var(--line);vertical-align:top;overflow-wrap:anywhere}th:first-child{width:37%}th:nth-child(2){width:13%}th:last-child,td:last-child{padding-right:0}.case-id{font-size:12px}.group{font-size:10px;color:var(--muted);margin-top:5px}.cell-score{font-size:13px}.cell-status{display:block;font-size:10px;margin-top:5px;color:var(--muted)}.cell-status.unknown{color:var(--rust)}.cell-status.imputed{font-weight:600;color:var(--rust)}.queue th:first-child{width:37%}.queue th:nth-child(2){width:23%}.queue th:nth-child(3){width:13%}.queue td .reduction{color:var(--teal);font-weight:600}.empty{padding:32px 0;color:var(--muted);font-size:13px}.pagination{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-top:16px;font-size:11px;color:var(--muted)}.pager-controls{display:flex;gap:6px}.pager-controls button{padding:8px 12px;font-size:11px}.queue-intro{font-size:13px;line-height:1.6;color:var(--muted);max-width:740px;margin-bottom:22px}footer{display:flex;justify-content:space-between;gap:24px;align-items:start;padding:29px 0 36px;border-top:1px solid var(--ink);margin-top:60px;font-size:11px;color:var(--muted)}footer p{max-width:620px}.footer-mark{font:20px Georgia,serif;letter-spacing:-.7px;white-space:nowrap}.error{padding:32px;border:1px solid var(--rust);margin:30px 0;color:var(--rust)}
+.scenario-banner,#exact-weight{overflow-wrap:anywhere}
+@media(min-width:701px){header{padding:20px 0}.hero{padding:20px 0}.hero h1{font-size:clamp(40px,3.6vw,46px);max-width:1000px}.hero .suite-name{font-size:12px;margin-bottom:10px}.verdict{padding:5px 8px}.verdict-line{margin-bottom:10px}.hero-copy{font-size:13px;line-height:1.5;margin-top:10px;max-width:760px}.comparison{padding-top:20px}.comparison h2{font-size:28px}.comparison .section-number{margin-bottom:7px}.comparison .section-top{margin-bottom:10px}.system{padding:13px 0}.range-value{font-size:28px}.rail{height:14px;margin-top:8px}.scale{display:none}.exact{margin-top:4px;line-height:1.4}.metrics{margin-top:8px;line-height:1.4}.counts{margin-top:4px;line-height:1.4}.scenario{padding:14px 0}.hero,.comparison{animation:arrive .6s ease-out both}.comparison{animation-delay:.08s}@keyframes arrive{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}}
+@media(max-width:800px){.wrap{width:calc(100% - 48px)}.system{grid-template-columns:130px 1fr;gap:20px}.scenario{grid-template-columns:1fr}.scenario-controls{justify-content:flex-start;max-width:none}.header-actions .eyebrow{display:none}.section-top{align-items:flex-start;flex-direction:column;gap:12px}}
+@media(max-width:600px){.wrap{width:calc(100% - 40px)}header{padding:20px 0}.brand{font-size:25px}.header-actions button{padding:10px 12px;font-size:11px}.hero{padding:34px 0 30px}.hero-copy{font-size:14px}.verdict-line{gap:10px}.verdict-line .eyebrow{font-size:9px}.suite-name{font-size:11px;margin-bottom:17px}h2{font-size:28px}.comparison{padding-top:25px}.system{grid-template-columns:1fr;gap:13px;padding:24px 0}.system-label{padding:0}.system h3{font-size:18px}.range-value{font-size:30px}.range-caption{max-width:135px}.metrics{gap:9px 18px;font-size:11px}.scenario{padding:24px 0}.scenario-controls button{padding:10px 13px;font-size:12px}.data-section{padding-top:38px}.filters{gap:12px}.field.search{flex-basis:100%}.field{flex:1}.filters button{padding:10px 12px}table,tbody{display:block}thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}tr{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);column-gap:18px;border-top:1px solid var(--line);padding:16px 0}tr:last-child{border-bottom:1px solid var(--line)}td{display:block;border:0;padding:8px 0 0!important;min-width:0}td:first-child{grid-column:1/-1;padding-top:0!important}td:before{content:attr(data-label);display:block;font-size:10px;letter-spacing:.04em;color:var(--muted);margin-bottom:6px}td:first-child:before{display:none}.cases td:nth-child(2){grid-column:1/-1;font-size:10px;color:var(--muted);padding-top:7px!important}.cases td:nth-child(2):before{display:inline;margin-right:8px}.queue td:nth-child(2){grid-column:1/-1}.queue td:nth-child(2):before{display:inline;margin-right:8px}.pagination{align-items:flex-start}.pager-controls{flex-shrink:0}.pager-controls button{padding:8px 9px}.queue-intro{font-size:12px}footer{margin-top:42px;flex-direction:column;gap:14px}}
+@media(prefers-reduced-motion:reduce){*,*:before,*:after{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<a class="skip" href="#main">Skip to audit</a>
+<div class="wrap">
+<header><div class="brand">unscored<span class="brand-dot">.</span></div><div class="header-actions"><span class="eyebrow">Keep the denominator honest</span><button id="download-json" type="button">Download JSON ↓</button></div></header>
+<main id="main">
+<noscript><p class="error">This offline report needs JavaScript to display its embedded evidence. The accompanying report.json contains the same exact audit data.</p></noscript>
+<div id="load-error" class="error" hidden>Unable to display this report. Open the accompanying report.json to inspect its exact evidence.</div>
+<section class="hero" aria-labelledby="headline">
+<p id="suite-name" class="suite-name muted"></p>
+<div class="verdict-line"><span id="verdict" class="verdict"></span><span id="suite-size" class="eyebrow muted"></span></div>
+<h1 id="headline">Every intended case counts.</h1><p id="hero-copy" class="hero-copy"></p>
+</section>
+<section class="comparison" aria-labelledby="comparison-title">
+<div class="section-top"><div><span class="section-number mono">01 / THE COMPARISON</span><h2 id="comparison-title">What the full suite allows.</h2></div><div class="legend" aria-label="Range legend"><span><i id="legend-swatch" class="swatch" aria-hidden="true"></i><span id="legend-known">Measured contribution</span></span><span id="legend-unknown"><i class="swatch unknown" aria-hidden="true"></i>Unresolved range</span></div></div>
+<div id="systems"></div>
+<div class="scenario">
+<div><h3>Try a completion.</h3><p class="small muted">Assign unknowns to an extreme. Observed scores stay fixed.</p></div>
+<div class="scenario-controls" role="group" aria-label="Completion scenario"><button id="evidence" type="button" aria-pressed="true">Evidence</button><button id="favor-a" type="button" aria-pressed="false">Favor A</button><button id="favor-b" type="button" aria-pressed="false">Favor B</button></div>
+<div id="scenario-banner" class="scenario-banner" role="status" aria-live="polite" hidden><strong>Hypothetical completion — not measured</strong><span id="scenario-result"></span></div>
+</div>
+<details class="details"><summary>Exact arithmetic &amp; what this verdict means</summary><div class="detail-content"><p>Scores are bounded by 0 and 1; higher is better. Missing, error and unscored cells remain in the intended denominator. A reported error is unknown unless the input explicitly scores it as zero.</p><p id="exact-margin" class="margin mono"></p><p id="exact-weight" class="mono"></p><p>Only a strictly positive or strictly negative margin proves a winner. Endpoint ties are inconclusive; a margin fixed at zero is an exact tie. Displayed range percentages round outward, while exact fractions carry the proof. Known points and diagnostic means round to the nearest tenth of a percentage point.</p><p>This is a deterministic bound for this finite suite, not a statistical confidence interval or a prediction for unseen cases. The verdict depends on the supplied case set, weights and scoring policy.</p></div></details>
+</section>
+<section class="data-section" aria-labelledby="cases-title">
+<div class="section-top"><div><span class="section-number mono">02 / THE EVIDENCE</span><h2 id="cases-title">Nothing disappears.</h2></div><p class="section-note">Every intended case, including the ones without a score. Filters also apply to the measurement queue.</p></div>
+<div class="filters"><div class="field search"><label for="case-search">Find a case or group</label><input id="case-search" type="search" placeholder="Search case IDs and groups" autocomplete="off"></div><div class="field"><label for="status-filter">Original status · either system</label><select id="status-filter"><option value="all">All statuses</option><option value="unresolved">Any unresolved</option><option value="scored">Scored</option><option value="missing">Missing</option><option value="error">Error</option><option value="unscored">Unscored</option></select></div><button id="reset-filters" type="button">Reset filters</button></div>
+<table class="cases" aria-labelledby="cases-title"><thead><tr><th scope="col">Case / group</th><th scope="col">Weight</th><th id="case-a" scope="col">A</th><th id="case-b" scope="col">B</th></tr></thead><tbody id="case-rows"></tbody></table><p id="cases-empty" class="empty" hidden>No cases match these filters.</p>
+<div class="pagination"><span id="cases-count" role="status" aria-live="polite"></span><div class="pager-controls"><button id="cases-prev" type="button" aria-label="Previous case page">← Previous</button><button id="cases-next" type="button" aria-label="Next case page">Next →</button></div></div>
+</section>
+<section class="data-section" aria-labelledby="queue-title">
+<div class="section-top"><div><span class="section-number mono">03 / THE NEXT MEASUREMENT</span><h2 id="queue-title">Close the largest gaps first.</h2></div><span id="queue-total" class="section-note"></span></div>
+<p class="queue-intro">Highest-weight unresolved cells come first. Measuring a cell removes its weight ÷ total weight from the A − B margin width, whatever its score. This ordering assumes equal measurement cost; it does not guarantee the next measurement settles the ranking.</p>
+<table class="queue" aria-labelledby="queue-title"><thead><tr><th scope="col">Case / original status</th><th scope="col">System</th><th scope="col">Weight</th><th scope="col">Width removed</th></tr></thead><tbody id="queue-rows"></tbody></table><p id="queue-empty" class="empty" hidden></p>
+<div class="pagination"><span id="queue-count" role="status" aria-live="polite"></span><div class="pager-controls"><button id="queue-prev" type="button" aria-label="Previous measurement page">← Previous</button><button id="queue-next" type="button" aria-label="Next measurement page">Next →</button></div></div>
+</section>
+</main>
+<footer><span class="footer-mark">Evidence before winners.</span><p>Made with Unscored · An offline audit, with no external requests. The JSON download contains the original identifiers and exact scores supplied to this report.</p></footer>
+</div>
+<script type="application/json" id="report-data">__REPORT_JSON__</script>
+<script>
+'use strict';
+try {
+  const report = JSON.parse(document.getElementById('report-data').textContent);
+  const $ = id => document.getElementById(id);
+  const node = (tag, text, cls) => { const el = document.createElement(tag); if (text !== undefined) el.textContent = text; if (cls) el.className = cls; return el; };
+  const fraction = value => { const [n, d = '1'] = String(value).split('/'); return [BigInt(n), BigInt(d)]; };
+  const percent = (value, rounding = 'nearest') => {
+    const [n, d] = fraction(value), scaled = n * 1000n;
+    const q = (scaled + (rounding === 'up' ? d - 1n : rounding === 'nearest' ? d / 2n : 0n)) / d;
+    return `${q / 10n}.${q % 10n}%`;
+  };
+  const position = value => { const [n, d] = fraction(value); return Number(n * 1000000n / d) / 10000; };
+  const [a, b] = report.system_ids, PAGE_SIZE = 50;
+  const caseIndex = new Map(report.cases.map(c => [c.id, {record:c, search:`${c.id} ${c.group}`.toLowerCase()}]));
+  const controls = [$('evidence'), $('favor-a'), $('favor-b')];
+  let scenario = null, assignments = new Map(), casePage = 0, queuePage = 0;
+  let filteredCases = report.cases, filteredQueue = report.rerun_plan;
+  $('suite-name').textContent = report.name;
+  $('suite-size').textContent = `${report.summary.case_count.toLocaleString()} intended cases · finite-suite audit`;
+  const verdict = report.summary.verdict;
+  $('verdict').textContent = verdict === 'inconclusive' ? 'Inconclusive' : verdict === 'tie' ? 'Exact tie' : 'Strict winner on this suite';
+  $('verdict').classList.toggle('certified', verdict !== 'inconclusive');
+  $('headline').textContent = verdict === 'inconclusive' ? 'The winner is still unresolved.' : verdict === 'tie' ? 'The evidence ends in an exact tie.' : `${report.summary.winner} wins on this suite.`;
+  $('hero-copy').textContent = verdict === 'inconclusive' ? 'No strict winner is guaranteed across every allowed completion of the unresolved scores. Keep every intended case in the comparison.' : verdict === 'tie' ? 'Both systems have the same score on the intended suite. Every allowed completion preserves the tie.' : 'The lead holds across every allowed completion of the unresolved scores. This conclusion covers the declared suite only.';
+  $('favor-a').textContent = `Favor ${a}`; $('favor-b').textContent = `Favor ${b}`;
+  $('case-a').textContent = `A · ${a}`; $('case-b').textContent = `B · ${b}`;
+  $('exact-margin').textContent = `Exact margin (${a} − ${b}): [${report.summary.margin.lower}, ${report.summary.margin.upper}]`;
+  $('exact-weight').textContent = `Total intended weight: ${report.summary.total_weight}`;
+  $('queue-total').textContent = `${report.rerun_plan.length.toLocaleString()} unresolved cells`;
+
+  function renderSystems() {
+    const rows = report.systems.map((system, index) => {
+      const row = node('article', undefined, 'system'), label = node('div', undefined, 'system-label');
+      label.append(node('span', index ? 'B' : 'A', 'system-key mono'), node('h3', system.id));
+      const main = node('div', undefined, 'system-main'), line = node('div', undefined, 'score-line');
+      const low = scenario ? scenario.scores[system.id] : system.lower, high = scenario ? low : system.upper;
+      const point = low === high;
+      line.append(node('div', point ? percent(low) : `${percent(low, 'down')}–${percent(high, 'up')}`, 'range-value mono'), node('div', scenario ? 'Hypothetical suite score' : point ? 'Known suite score' : 'Possible suite score', 'range-caption'));
+      const rail = node('div', undefined, `rail${scenario ? ' hypothetical' : ''}`); rail.setAttribute('aria-hidden', 'true');
+      const known = node('span', undefined, 'known'); known.style.width = `${position(low)}%`; rail.append(known);
+      if (point) { const marker = node('span', undefined, 'point'); marker.style.left = `${position(low)}%`; rail.append(marker); }
+      else { const unknown = node('span', undefined, 'unknown'); unknown.style.left = `${position(low)}%`; unknown.style.width = `${position(high) - position(low)}%`; rail.append(unknown); }
+      const scale = node('div', undefined, 'scale mono'); scale.setAttribute('aria-hidden', 'true'); scale.append(node('span', '0%'), node('span', '100%'));
+      const exact = node('p', point ? `Exact score: ${low}` : `Exact range: [${low}, ${high}]`, 'exact mono');
+      const metrics = node('div', undefined, 'metrics');
+      const mean = node('span'); mean.append(node('strong', system.observed_mean === null ? 'No scored cases' : percent(system.observed_mean)), node('span', ' observed-only mean · diagnostic'));
+      const coverage = node('span'); coverage.append(node('strong', percent(system.coverage)), node('span', ` weighted coverage (${system.scored}/${report.summary.case_count} cases scored)`));
+      metrics.append(mean, coverage);
+      const counts = node('p', `${system.scored} scored · ${system.missing} missing · ${system.error} error · ${system.unscored} unscored`, 'counts');
+      main.append(line, rail, scale, exact, metrics, counts); row.append(label, main); return row;
+    });
+    $('systems').replaceChildren(...rows);
+  }
+
+  function cell(text, label, cls) { const el = node('td', text, cls); el.dataset.label = label; return el; }
+  function scoreCell(c, key, system) {
+    const original = c[key], el = cell(undefined, `${key.toUpperCase()} · ${system}`), observed = original.status === 'scored';
+    const imputed = !observed && scenario !== null;
+    const score = observed ? original.score : imputed ? assignments.get(system).get(c.id) : null;
+    el.append(node('span', score === null ? '—' : String(score), 'cell-score mono'));
+    el.append(node('span', imputed ? `Imputed · originally ${original.status}` : observed ? 'Scored · observed' : original.status[0].toUpperCase() + original.status.slice(1), `cell-status${imputed ? ' imputed' : observed ? '' : ' unknown'}`));
+    return el;
+  }
+  function pageState(prefix, page, length, noun) {
+    const start = page * PAGE_SIZE;
+    $(`${prefix}-count`).textContent = length ? `${(start + 1).toLocaleString()}–${Math.min(start + PAGE_SIZE, length).toLocaleString()} of ${length.toLocaleString()} ${noun}` : `0 ${noun}`;
+    $(`${prefix}-prev`).disabled = page === 0; $(`${prefix}-next`).disabled = start + PAGE_SIZE >= length;
+  }
+  function renderCases() {
+    const rows = filteredCases.slice(casePage * PAGE_SIZE, (casePage + 1) * PAGE_SIZE).map(c => {
+      const row = node('tr'), id = cell(undefined, 'Case / group'); id.append(node('div', c.id, 'case-id mono'), node('div', c.group, 'group'));
+      row.append(id, cell(c.weight, 'Weight', 'mono'), scoreCell(c, 'a', a), scoreCell(c, 'b', b)); return row;
+    });
+    $('case-rows').replaceChildren(...rows); $('cases-empty').hidden = filteredCases.length !== 0;
+    pageState('cases', casePage, filteredCases.length, 'cases');
+  }
+  function renderQueue() {
+    const rows = filteredQueue.slice(queuePage * PAGE_SIZE, (queuePage + 1) * PAGE_SIZE).map(item => {
+      const row = node('tr'), id = cell(undefined, 'Case / status'), reduction = cell(undefined, 'Width removed');
+      id.append(node('div', item.case_id, 'case-id mono'), node('div', item.status, 'cell-status unknown'));
+      reduction.append(node('span', `≈ ${percent(item.interval_reduction).replace('%', '')} pp`, 'reduction mono'), node('span', `Exact: ${item.interval_reduction}`, 'cell-status mono'));
+      row.append(id, cell(item.system, 'System'), cell(item.weight, 'Weight', 'mono'), reduction); return row;
+    });
+    $('queue-rows').replaceChildren(...rows); $('queue-empty').hidden = filteredQueue.length !== 0;
+    $('queue-empty').textContent = report.rerun_plan.length ? 'No unresolved cells match these filters.' : 'All intended cells are scored. There is nothing left to measure.';
+    pageState('queue', queuePage, filteredQueue.length, 'cells');
+  }
+  function selectScenario(index) {
+    scenario = index === null ? null : report.completion_witnesses[index];
+    assignments = new Map(report.system_ids.map(id => [id, new Map()]));
+    if (scenario) for (const item of scenario.assignments) assignments.get(item.system).set(item.case_id, item.score);
+    controls.forEach((button, i) => button.setAttribute('aria-pressed', String(i === (index === null ? 0 : index + 1))));
+    $('legend-known').textContent = scenario ? 'Hypothetical score' : 'Measured contribution';
+    $('legend-swatch').style.background = scenario ? 'var(--rust)' : '';
+    $('legend-unknown').hidden = scenario !== null;
+    $('scenario-banner').hidden = scenario === null;
+    if (scenario) $('scenario-result').textContent = `${scenario.winner === null ? 'An exact tie' : `${scenario.winner} wins`} in this completion. Unknown ${scenario.favored} scores are 1; the other system’s unknown scores are 0. Exact A − B margin: ${scenario.margin}. Coverage and the verdict above still describe measured evidence.`;
+    renderSystems(); renderCases();
+  }
+  function filterRows() {
+    const query = $('case-search').value.trim().toLowerCase(), status = $('status-filter').value;
+    const matches = value => status === 'all' || (status === 'unresolved' ? value !== 'scored' : value === status);
+    const search = id => !query || caseIndex.get(id).search.includes(query);
+    filteredCases = report.cases.filter(c => search(c.id) && (matches(c.a.status) || matches(c.b.status)));
+    filteredQueue = report.rerun_plan.filter(c => search(c.case_id) && matches(c.status));
+    casePage = 0; queuePage = 0; renderCases(); renderQueue();
+  }
+  controls.forEach((button, index) => button.addEventListener('click', () => selectScenario(index === 0 ? null : index - 1)));
+  let searchTimer;
+  $('case-search').addEventListener('input', () => { clearTimeout(searchTimer); searchTimer = setTimeout(filterRows, 120); });
+  $('status-filter').addEventListener('change', filterRows);
+  $('reset-filters').addEventListener('click', () => { clearTimeout(searchTimer); $('case-search').value = ''; $('status-filter').value = 'all'; filterRows(); });
+  $('cases-prev').addEventListener('click', () => { casePage--; renderCases(); });
+  $('cases-next').addEventListener('click', () => { casePage++; renderCases(); });
+  $('queue-prev').addEventListener('click', () => { queuePage--; renderQueue(); });
+  $('queue-next').addEventListener('click', () => { queuePage++; renderQueue(); });
+  $('download-json').addEventListener('click', () => {
+    const url = URL.createObjectURL(new Blob([JSON.stringify(report, null, 2)], {type:'application/json'}));
+    const link = node('a'); link.href = url; link.download = 'report.json'; document.body.append(link); link.click(); link.remove();
+    setTimeout(() => URL.revokeObjectURL(url), 1000);
+  });
+  renderSystems(); renderCases(); renderQueue();
+} catch (error) { document.getElementById('load-error').hidden = false; }
+</script>
+</body>
+</html>

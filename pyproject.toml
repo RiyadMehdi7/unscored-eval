@@ -1,0 +1,27 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "unscored-eval"
+version = "0.1.0"
+description = "Can missing evaluation results change your winner? Exact bounds and inspectable counterexamples."
+readme = "README.md"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+authors = [{name = "Unscored contributors"}]
+keywords = ["evaluation", "llm", "missing-data", "benchmark", "ai"]
+classifiers = [
+    "Development Status :: 3 - Alpha",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+]
+
+[project.scripts]
+unscored = "unscored.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+unscored = ["report.html", "examples/*.json", "examples/*.jsonl"]
